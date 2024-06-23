@@ -1,0 +1,7 @@
+torch
+torchvision
+tqdm
+wandb
+hnswlib
+numpy
+scikit-learn

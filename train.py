@@ -232,6 +232,7 @@ def main():
                         kernel_type=args.kernel_type,
                         n_shot=args.n_shot,
                         n_way=args.n_way,
+                        device=args.device,
                         debug_mode=args.debug_mode)
     else:
         raise NotImplementedError()
@@ -289,12 +290,12 @@ def main():
         if args.train_method == 'nwhead':
             network.eval()
             network.precompute()
-            print('Evaluating on random mode...')
-            eval_epoch(val_loader, network, criterion, optimizer, args, mode='random')
+            # print('Evaluating on random mode...')
+            # eval_epoch(val_loader, network, criterion, optimizer, args, mode='random')
             print('Evaluating on full mode...')
             acc1 = eval_epoch(val_loader, network, criterion, optimizer, args, mode='full')
-            print('Evaluating on cluster mode...')
-            eval_epoch(val_loader, network, criterion, optimizer, args, mode='cluster')
+            # print('Evaluating on cluster mode...')
+            # eval_epoch(val_loader, network, criterion, optimizer, args, mode='cluster')
         else:
             acc1 = eval_epoch(val_loader, network, criterion, optimizer, args)
 
